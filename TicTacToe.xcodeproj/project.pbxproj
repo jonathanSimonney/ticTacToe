@@ -18,6 +18,7 @@
 		7A8360952020B02400678AF7 /* OnlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8360942020B02400678AF7 /* OnlineViewController.swift */; };
 		7A8360972020B37000678AF7 /* OfflineModalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8360962020B37000678AF7 /* OfflineModalController.swift */; };
 		7A8360992020B37F00678AF7 /* OnlineModalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8360982020B37F00678AF7 /* OnlineModalController.swift */; };
+		7A83609B2020BF0500678AF7 /* board.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A83609A2020BF0500678AF7 /* board.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		7A8360942020B02400678AF7 /* OnlineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnlineViewController.swift; sourceTree = "<group>"; };
 		7A8360962020B37000678AF7 /* OfflineModalController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfflineModalController.swift; sourceTree = "<group>"; };
 		7A8360982020B37F00678AF7 /* OnlineModalController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnlineModalController.swift; sourceTree = "<group>"; };
+		7A83609A2020BF0500678AF7 /* board.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = board.png; path = ../../board.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		7A8360632020A9E500678AF7 /* TicTacToe */ = {
 			isa = PBXGroup;
 			children = (
+				7A83609A2020BF0500678AF7 /* board.png */,
 				7A8360642020A9E500678AF7 /* AppDelegate.swift */,
 				7A8360662020A9E500678AF7 /* ViewController.swift */,
 				7A8360682020A9E500678AF7 /* Main.storyboard */,
@@ -244,6 +247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A83609B2020BF0500678AF7 /* board.png in Resources */,
 				7A83606F2020A9E500678AF7 /* LaunchScreen.storyboard in Resources */,
 				7A83606C2020A9E500678AF7 /* Assets.xcassets in Resources */,
 				7A83606A2020A9E500678AF7 /* Main.storyboard in Resources */,

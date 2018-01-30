@@ -20,6 +20,9 @@ class OfflineModalController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    @IBAction func buttonTouch(_ sender: Any) {
+        print((sender as! UIButton).tag)
+    }
     @IBAction func closeAction(_ sender: Any) {
         self.dismiss(animated: false, completion: nil)
     }
