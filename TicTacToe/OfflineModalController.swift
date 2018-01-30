@@ -14,6 +14,16 @@ class OfflineModalController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         print("offline modal loaded")
+        setButtonsBorder()
+    }
+    
+    func setButtonsBorder(){
+        for i in 1...9{
+            let button = self.view.viewWithTag(i) as? UIButton
+            button?.layer.borderColor = UIColor.red.cgColor
+            button?.layer.borderWidth = 1
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
