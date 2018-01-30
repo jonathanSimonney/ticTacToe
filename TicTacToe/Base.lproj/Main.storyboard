@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nUI-Gr-IaK">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--offline-->
+        <scene sceneID="cL3-WE-ghf">
+            <objects>
+                <viewController title="offline" id="VKs-61-cKn" customClass="OfflineViewController" customModule="TicTacToe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="E4x-LY-Rrg"/>
+                        <viewControllerLayoutGuide type="bottom" id="q9s-2D-Jo5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HPE-Fl-DQT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wJ-gA-Sva">
+                                <rect key="frame" x="149" y="318" width="76" height="30"/>
+                                <state key="normal" title="Play offline"/>
+                                <connections>
+                                    <segue destination="7cq-cp-RGZ" kind="presentation" id="IEa-DJ-RPk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9wJ-gA-Sva" firstAttribute="centerX" secondItem="HPE-Fl-DQT" secondAttribute="centerX" id="AqO-pc-gL3"/>
+                            <constraint firstItem="9wJ-gA-Sva" firstAttribute="centerY" secondItem="HPE-Fl-DQT" secondAttribute="centerY" id="mLW-Qe-uuy"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="offline" id="Q3j-kk-87e"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W0F-ZT-vzP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1070" y="-652"/>
+        </scene>
+        <!--Offline Modal Controller-->
+        <scene sceneID="Fyn-Zd-pCF">
+            <objects>
+                <viewController id="7cq-cp-RGZ" customClass="OfflineModalController" customModule="TicTacToe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YUh-jK-U63"/>
+                        <viewControllerLayoutGuide type="bottom" id="9gZ-qu-byu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="353-P0-nnv" customClass="offlineModalController">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lhj-Jv-EOs">
+                                <rect key="frame" x="20" y="28" width="39" height="30"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="closeAction:" destination="7cq-cp-RGZ" eventType="touchUpInside" id="2W6-Oj-qHN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lhj-Jv-EOs" firstAttribute="top" secondItem="YUh-jK-U63" secondAttribute="bottom" constant="8" id="ADJ-Wj-Z3j"/>
+                            <constraint firstItem="lhj-Jv-EOs" firstAttribute="leading" secondItem="353-P0-nnv" secondAttribute="leadingMargin" constant="4" id="VAt-hr-AE8"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gla-cS-yIj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1911" y="-651"/>
+        </scene>
+        <!--online-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController title="online" id="BYZ-38-t0r" customClass="OnlineViewController" customModule="TicTacToe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Dc-9c-aAl">
+                                <rect key="frame" x="150" y="318" width="74" height="30"/>
+                                <state key="normal" title="Play online"/>
+                                <connections>
+                                    <segue destination="LyD-Of-Avz" kind="presentation" id="BP3-Kz-Rd8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Dc-9c-aAl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="qsY-dC-TwT"/>
+                            <constraint firstItem="6Dc-9c-aAl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zDR-fu-tL5"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="online" id="VOR-sc-RHf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1056.8" y="123.68815592203899"/>
+        </scene>
+        <!--Online Modal Controller-->
+        <scene sceneID="M0l-W7-fEd">
+            <objects>
+                <viewController id="LyD-Of-Avz" customClass="OnlineModalController" customModule="TicTacToe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lcj-Ob-HCR"/>
+                        <viewControllerLayoutGuide type="bottom" id="P8F-F5-1b7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KvN-c7-cKr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7pd-d1-kCz">
+                                <rect key="frame" x="21" y="28" width="37" height="30"/>
+                                <state key="normal" title="close"/>
+                                <connections>
+                                    <action selector="closeAction:" destination="LyD-Of-Avz" eventType="touchUpInside" id="PVG-OA-7VQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7pd-d1-kCz" firstAttribute="top" secondItem="lcj-Ob-HCR" secondAttribute="bottom" constant="8" id="Y2w-wc-g1W"/>
+                            <constraint firstItem="7pd-d1-kCz" firstAttribute="leading" secondItem="KvN-c7-cKr" secondAttribute="leadingMargin" constant="5" id="iP2-oo-o8o"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gn5-Zq-hNv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1867" y="126"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="2fZ-ir-jUy">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="nUI-Gr-IaK" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Ev0-gO-B0V">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Caj-A2-xWe"/>
+                        <segue destination="VKs-61-cKn" kind="relationship" relationship="viewControllers" id="jL2-52-O89"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="da2-lO-95Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="123.68815592203899"/>
+        </scene>
+    </scenes>
+</document>
