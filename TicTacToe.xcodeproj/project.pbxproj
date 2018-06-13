@@ -18,6 +18,7 @@
 		7A8360952020B02400678AF7 /* OnlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8360942020B02400678AF7 /* OnlineViewController.swift */; };
 		7A8360972020B37000678AF7 /* OfflineModalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8360962020B37000678AF7 /* OfflineModalController.swift */; };
 		7A8360992020B37F00678AF7 /* OnlineModalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8360982020B37F00678AF7 /* OnlineModalController.swift */; };
+		FA14376220D11648002194AA /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA14376120D11648002194AA /* Board.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		7A8360942020B02400678AF7 /* OnlineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnlineViewController.swift; sourceTree = "<group>"; };
 		7A8360962020B37000678AF7 /* OfflineModalController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfflineModalController.swift; sourceTree = "<group>"; };
 		7A8360982020B37F00678AF7 /* OnlineModalController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnlineModalController.swift; sourceTree = "<group>"; };
+		FA14376120D11648002194AA /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		7A8360632020A9E500678AF7 /* TicTacToe */ = {
 			isa = PBXGroup;
 			children = (
+				FA14376020D11623002194AA /* service */,
 				7A8360642020A9E500678AF7 /* AppDelegate.swift */,
 				7A8360662020A9E500678AF7 /* ViewController.swift */,
 				7A8360682020A9E500678AF7 /* Main.storyboard */,
@@ -135,6 +138,14 @@
 				7A8360862020A9E500678AF7 /* Info.plist */,
 			);
 			path = TicTacToeUITests;
+			sourceTree = "<group>";
+		};
+		FA14376020D11623002194AA /* service */ = {
+			isa = PBXGroup;
+			children = (
+				FA14376120D11648002194AA /* Board.swift */,
+			);
+			name = service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +284,7 @@
 			files = (
 				7A8360932020B00E00678AF7 /* OfflineViewController.swift in Sources */,
 				7A8360972020B37000678AF7 /* OfflineModalController.swift in Sources */,
+				FA14376220D11648002194AA /* Board.swift in Sources */,
 				7A8360952020B02400678AF7 /* OnlineViewController.swift in Sources */,
 				7A8360672020A9E500678AF7 /* ViewController.swift in Sources */,
 				7A8360992020B37F00678AF7 /* OnlineModalController.swift in Sources */,
