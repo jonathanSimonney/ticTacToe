@@ -36,8 +36,16 @@ class OfflineModalController: UIViewController {
     @IBAction func buttonTouch(_ sender: Any) {
         let buttonTouched = (sender as! UIButton)
         if (self.board.playInBox(boxNumber: buttonTouched.tag)){
-            let currentPlayerId = self.getCurrentPlayerId()
-            buttonTouched.setTitle(String(currentPlayerId), for: .normal)
+            var currentPlayerPicture = UIImage(named: "picturePlayer" + String(self.getCurrentPlayerId())+".png")
+            switch self.getCurrentPlayerId() {
+            case 0:
+                currentPlayerPicture = UIImage(named: "picturePlayer0.png")
+            case 1:
+                currentPlayerPicture = UIImage(named: "picturePlayer1.jpg")
+            default:
+                print("currentPlayerId unexpected")
+            }
+            buttonTouched.setImage(currentPlayerPicture, for: .normal)
             if (self.board.getWinner() != -1){
                 print ("winner is player " + String(self.board.getWinner()))
             }
