@@ -139,15 +139,27 @@
                                     <constraint firstAttribute="height" constant="250" id="shh-bh-cl3"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGz-TN-chV">
+                                <rect key="frame" x="20" y="57" width="340" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="lhj-Jv-EOs" firstAttribute="top" secondItem="YUh-jK-U63" secondAttribute="bottom" constant="8" id="ADJ-Wj-Z3j"/>
                             <constraint firstItem="1hB-Xl-gYq" firstAttribute="centerY" secondItem="353-P0-nnv" secondAttribute="centerY" id="Nai-wZ-WuS"/>
                             <constraint firstItem="lhj-Jv-EOs" firstAttribute="leading" secondItem="353-P0-nnv" secondAttribute="leadingMargin" constant="4" id="VAt-hr-AE8"/>
+                            <constraint firstItem="gGz-TN-chV" firstAttribute="leading" secondItem="lhj-Jv-EOs" secondAttribute="leading" id="glr-sg-gg2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gGz-TN-chV" secondAttribute="trailing" constant="-1" id="o8K-3Z-Wy1"/>
+                            <constraint firstItem="gGz-TN-chV" firstAttribute="top" secondItem="YUh-jK-U63" secondAttribute="bottom" constant="37" id="u68-LA-2iT"/>
                             <constraint firstItem="1hB-Xl-gYq" firstAttribute="centerX" secondItem="353-P0-nnv" secondAttribute="centerX" id="vlV-oX-ciU"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="winnerLabel" destination="gGz-TN-chV" id="KXJ-qq-Anp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gla-cS-yIj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

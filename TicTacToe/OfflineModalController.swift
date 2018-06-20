@@ -17,44 +17,61 @@ class OfflineModalController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         print("offline modal loaded")
         setButtonsBorder()
+        self.winnerLabel.isHidden = true
         self.board = Board()
-    }
-    
-    func setButtonsBorder(){
-        for i in 1...9{
-            let button = self.view.viewWithTag(i) as? UIButton
-            button?.layer.borderColor = UIColor.black.cgColor
-            button?.layer.borderWidth = 2
-        }
-        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     @IBAction func buttonTouch(_ sender: Any) {
+        if (self.board.getWinner() != -1){
+            return;
+        }
+        
         let buttonTouched = (sender as! UIButton)
         if (self.board.playInBox(boxNumber: buttonTouched.tag)){
-            var currentPlayerPicture = UIImage(named: "picturePlayer" + String(self.getCurrentPlayerId())+".png")
-            switch self.getCurrentPlayerId() {
-            case 0:
-                currentPlayerPicture = UIImage(named: "picturePlayer0.png")
-            case 1:
-                currentPlayerPicture = UIImage(named: "picturePlayer1.png")
-            default:
-                print("currentPlayerId unexpected")
-            }
+            let currentPlayerPicture = UIImage(named: "picturePlayer" + String(self.getCurrentPlayerId())+".png")
             buttonTouched.setImage(currentPlayerPicture, for: .normal)
             if (self.board.getWinner() != -1){
-                print ("winner is player " + String(self.board.getWinner()))
+                presentWinner()
             }
             self.originalPlayerTurn = !self.originalPlayerTurn
         }
     }
+    
+    @IBOutlet weak var winnerLabel: UILabel!
+    
     @IBAction func closeAction(_ sender: Any) {
-        self.dismiss(animated: false, completion: nil)
+        let alert = UIAlertController(title: "Leave?", message: "If you leave, you'll be considered as having lost this game. ", preferredStyle: .alert)
+        let modalViewController = self
+        
+        alert.addAction(UIAlertAction(title: "Leave", style: .default, handler: {
+            (alert: UIAlertAction!) in
+            modalViewController.dismiss(animated: false, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Stay", style: .default, handler: nil))
+        
+        self.present(alert, animated: true)
     }
+    
+    //helper functions
+    
+    private func setButtonsBorder(){
+        for i in 1...9{
+            let button = self.view.viewWithTag(i) as? UIButton
+            button?.layer.borderColor = UIColor.black.cgColor
+            button?.layer.borderWidth = 2
+        }
+    }
+    
+    private func presentWinner(){
+        self.winnerLabel.text = "player \(String(self.board.getWinner())) won"
+        self.winnerLabel.isHidden = false
+    }
+    
     private func getCurrentPlayerId() -> Int{
         return Int(NSNumber(value:originalPlayerTurn))
     }
