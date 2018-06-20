@@ -78,10 +78,18 @@ class OfflineModalController: UIViewController {
     private func presentWinner(){
         if (self.board.getWinner() != -1){
             self.winnerLabel.text = "player \(String(self.board.getWinner())) won"
+            self.colorButtons(arrayTags: self.board.getColoredBoxes())
         }else{
             self.winnerLabel.text = "no player won. Draw!"
         }
         self.winnerLabel.isHidden = false
+    }
+    
+    private func colorButtons(arrayTags: [Int]){
+        for i in arrayTags{
+            let button = self.view.viewWithTag(i) as? UIButton
+            button?.backgroundColor = .red
+        }
     }
     
     private func getCurrentPlayerId() -> Int{
