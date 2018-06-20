@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -67,19 +66,19 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="VuC-GP-hk6">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="83.5"/>
                                         <subviews>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dZ-A6-tB8">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dZ-A6-tB8">
                                                 <rect key="frame" x="0.0" y="0.0" width="83.5" height="83.5"/>
                                                 <connections>
                                                     <action selector="buttonTouch:" destination="7cq-cp-RGZ" eventType="touchUpInside" id="sJc-8H-3hS"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGq-MP-88J">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGq-MP-88J">
                                                 <rect key="frame" x="83.5" y="0.0" width="83" height="83.5"/>
                                                 <connections>
                                                     <action selector="buttonTouch:" destination="7cq-cp-RGZ" eventType="touchUpInside" id="LBr-r1-YRF"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3K-Qd-KEb">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3K-Qd-KEb">
                                                 <rect key="frame" x="166.5" y="0.0" width="83.5" height="83.5"/>
                                                 <connections>
                                                     <action selector="buttonTouch:" destination="7cq-cp-RGZ" eventType="touchUpInside" id="Kyf-Cz-y4H"/>
@@ -90,19 +89,19 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Iiu-bV-jsS">
                                         <rect key="frame" x="0.0" y="83.5" width="250" height="83"/>
                                         <subviews>
-                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfh-si-dEd">
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfh-si-dEd">
                                                 <rect key="frame" x="0.0" y="0.0" width="83.5" height="83"/>
                                                 <connections>
                                                     <action selector="buttonTouch:" destination="7cq-cp-RGZ" eventType="touchUpInside" id="RrH-wS-Y8o"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2mh-7o-m24">
+                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2mh-7o-m24">
                                                 <rect key="frame" x="83.5" y="0.0" width="83" height="83"/>
                                                 <connections>
                                                     <action selector="buttonTouch:" destination="7cq-cp-RGZ" eventType="touchUpInside" id="xSA-9N-goy"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BwG-PX-9kV">
+                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BwG-PX-9kV">
                                                 <rect key="frame" x="166.5" y="0.0" width="83.5" height="83"/>
                                                 <connections>
                                                     <action selector="buttonTouch:" destination="7cq-cp-RGZ" eventType="touchUpInside" id="vOc-Bh-oXX"/>
@@ -113,19 +112,19 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Pg6-ao-cr6">
                                         <rect key="frame" x="0.0" y="166.5" width="250" height="83.5"/>
                                         <subviews>
-                                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qno-sm-8in">
+                                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qno-sm-8in">
                                                 <rect key="frame" x="0.0" y="0.0" width="83.5" height="83.5"/>
                                                 <connections>
                                                     <action selector="buttonTouch:" destination="7cq-cp-RGZ" eventType="touchUpInside" id="P1f-ly-udi"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eES-dp-JgJ">
+                                            <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eES-dp-JgJ">
                                                 <rect key="frame" x="83.5" y="0.0" width="83" height="83.5"/>
                                                 <connections>
                                                     <action selector="buttonTouch:" destination="7cq-cp-RGZ" eventType="touchUpInside" id="T1p-PP-u8a"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VIc-8R-Lnl">
+                                            <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VIc-8R-Lnl">
                                                 <rect key="frame" x="166.5" y="0.0" width="83.5" height="83.5"/>
                                                 <connections>
                                                     <action selector="buttonTouch:" destination="7cq-cp-RGZ" eventType="touchUpInside" id="q0t-PL-rwE"/>
@@ -134,6 +133,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <color key="tintColor" red="0.25098040700000002" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="pmT-le-jzS"/>
                                     <constraint firstAttribute="height" constant="250" id="shh-bh-cl3"/>

@@ -23,7 +23,7 @@ class OfflineModalController: UIViewController {
     func setButtonsBorder(){
         for i in 1...9{
             let button = self.view.viewWithTag(i) as? UIButton
-            button?.layer.borderColor = UIColor.red.cgColor
+            button?.layer.borderColor = UIColor.black.cgColor
             button?.layer.borderWidth = 2
         }
         
@@ -41,7 +41,7 @@ class OfflineModalController: UIViewController {
             case 0:
                 currentPlayerPicture = UIImage(named: "picturePlayer0.png")
             case 1:
-                currentPlayerPicture = UIImage(named: "picturePlayer1.jpg")
+                currentPlayerPicture = UIImage(named: "picturePlayer1.png")
             default:
                 print("currentPlayerId unexpected")
             }
