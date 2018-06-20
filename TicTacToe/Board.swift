@@ -14,19 +14,29 @@ class Board {
                         -1, -1, -1]
     private var originalPlayerTurn: Bool = true
     private var victoriousPlayerId: Int = -1
+    private var gameIsEnded: Bool = false
+    private var numberTurnPlayed = 0
     
     func playInBox(boxNumber :Int) -> Bool{
         if (self.boxes[boxNumber - 1] != -1){
             return false
         }
+        self.numberTurnPlayed += 1
         self.boxes[boxNumber - 1] = self.getCurrentPlayerId()
         self.setVictoriousPlayerId()
         self.originalPlayerTurn = !self.originalPlayerTurn//we change the current player turn
+        if (self.numberTurnPlayed == 9){
+            self.gameIsEnded = true
+        }
         return true
     }
     
     func getWinner() -> Int{
         return self.victoriousPlayerId
+    }
+    
+    public func canContinuePlaying() -> Bool{
+        return !self.gameIsEnded
     }
     
     private func setVictoriousPlayerId(){
@@ -42,6 +52,7 @@ class Board {
             (boxes[2] == currentPlayerId && boxes[4] == currentPlayerId && boxes[8] == currentPlayerId)
             ){
             self.victoriousPlayerId = currentPlayerId
+            self.gameIsEnded = true
         }
     }
     

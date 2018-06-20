@@ -27,7 +27,7 @@ class OfflineModalController: UIViewController {
     }
     
     @IBAction func buttonTouch(_ sender: Any) {
-        if (self.board.getWinner() != -1){
+        if (!self.board.canContinuePlaying()){
             return;
         }
         
@@ -35,8 +35,9 @@ class OfflineModalController: UIViewController {
         if (self.board.playInBox(boxNumber: buttonTouched.tag)){
             let currentPlayerPicture = UIImage(named: "picturePlayer" + String(self.getCurrentPlayerId())+".png")
             buttonTouched.setImage(currentPlayerPicture, for: .normal)
-            if (self.board.getWinner() != -1){
+            if (!self.board.canContinuePlaying()){
                 presentWinner()
+                self.updateData(winnerPlayerId: self.getCurrentPlayerId())
             }
             self.originalPlayerTurn = !self.originalPlayerTurn
         }
@@ -45,11 +46,15 @@ class OfflineModalController: UIViewController {
     @IBOutlet weak var winnerLabel: UILabel!
     
     @IBAction func closeAction(_ sender: Any) {
+        if (!self.board.canContinuePlaying()){
+            self.dismiss(animated: false, completion: nil);
+        }
         let alert = UIAlertController(title: "Leave?", message: "If you leave, you'll be considered as having lost this game. ", preferredStyle: .alert)
         let modalViewController = self
         
         alert.addAction(UIAlertAction(title: "Leave", style: .default, handler: {
             (alert: UIAlertAction!) in
+            modalViewController.updateData(winnerPlayerId: modalViewController.getOppositePlayerId())
             modalViewController.dismiss(animated: false, completion: nil)
         }))
         alert.addAction(UIAlertAction(title: "Stay", style: .default, handler: nil))
@@ -58,6 +63,9 @@ class OfflineModalController: UIViewController {
     }
     
     //helper functions
+    private func updateData(winnerPlayerId: Int){
+        //TODO : save who won the game
+    }
     
     private func setButtonsBorder(){
         for i in 1...9{
@@ -68,11 +76,19 @@ class OfflineModalController: UIViewController {
     }
     
     private func presentWinner(){
-        self.winnerLabel.text = "player \(String(self.board.getWinner())) won"
+        if (self.board.getWinner() != -1){
+            self.winnerLabel.text = "player \(String(self.board.getWinner())) won"
+        }else{
+            self.winnerLabel.text = "no player won. Draw!"
+        }
         self.winnerLabel.isHidden = false
     }
     
     private func getCurrentPlayerId() -> Int{
         return Int(NSNumber(value:originalPlayerTurn))
+    }
+    
+    private func getOppositePlayerId() -> Int{
+        return Int(NSNumber(value:!originalPlayerTurn))
     }
 }
