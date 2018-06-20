@@ -64,7 +64,16 @@ class OfflineModalController: UIViewController {
     
     //helper functions
     private func updateData(winnerPlayerId: Int){
-        //TODO : save who won the game
+        let cache = NSCache<NSString, AnyObject>()
+        var myResults: [Int] = []
+        
+        if let results = cache.object(forKey: "results") {
+            // use the cached version
+            myResults = (results as? [Int])!
+        }
+            // create it from scratch then store in the cache
+        myResults.append(winnerPlayerId)
+        cache.setObject(myResults as AnyObject, forKey: "results")
     }
     
     private func setButtonsBorder(){

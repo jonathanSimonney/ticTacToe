@@ -28,10 +28,19 @@
                                     <segue destination="7cq-cp-RGZ" kind="presentation" id="IEa-DJ-RPk"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I4H-oz-cm4">
+                                <rect key="frame" x="117" y="96" width="141" height="30"/>
+                                <state key="normal" title="See historic of game"/>
+                                <connections>
+                                    <segue destination="ii2-Op-kdh" kind="presentation" id="UNE-O3-Y85"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9wJ-gA-Sva" firstAttribute="centerX" secondItem="HPE-Fl-DQT" secondAttribute="centerX" id="AqO-pc-gL3"/>
+                            <constraint firstItem="I4H-oz-cm4" firstAttribute="top" secondItem="E4x-LY-Rrg" secondAttribute="bottom" constant="32" id="RY3-wZ-qK8"/>
+                            <constraint firstItem="I4H-oz-cm4" firstAttribute="centerX" secondItem="HPE-Fl-DQT" secondAttribute="centerX" id="byZ-yb-4aj"/>
                             <constraint firstItem="9wJ-gA-Sva" firstAttribute="centerY" secondItem="HPE-Fl-DQT" secondAttribute="centerY" id="mLW-Qe-uuy"/>
                         </constraints>
                     </view>
@@ -40,6 +49,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W0F-ZT-vzP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2008.8" y="-652.62368815592208"/>
+        </scene>
+        <!--HistoryViewController-->
+        <scene sceneID="bCc-lW-UdD">
+            <objects>
+                <tableViewController title="HistoryViewController" id="ii2-Op-kdh" customClass="OfflineHistoryViewController" customModule="TicTacToe" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="1jA-tT-Y8P">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="singleMatchResult" id="loI-ay-KyN">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="loI-ay-KyN" id="YIw-MO-Qf6">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ii2-Op-kdh" id="0N3-Op-ObE"/>
+                            <outlet property="delegate" destination="ii2-Op-kdh" id="Xmi-nS-q91"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wFb-Ru-Nk5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2849" y="-1120"/>
         </scene>
         <!--Offline Modal Controller-->
         <scene sceneID="Fyn-Zd-pCF">
@@ -163,7 +200,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gla-cS-yIj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2848.8000000000002" y="-651.72413793103453"/>
+            <point key="canvasLocation" x="2863" y="-179"/>
         </scene>
         <!--online-->
         <scene sceneID="tne-QT-ifu">
@@ -195,7 +232,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1996" y="123.68815592203899"/>
+            <point key="canvasLocation" x="1974" y="600"/>
         </scene>
         <!--Online Modal Controller-->
         <scene sceneID="M0l-W7-fEd">
@@ -226,7 +263,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gn5-Zq-hNv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2805.5999999999999" y="125.4872563718141"/>
+            <point key="canvasLocation" x="2849" y="600"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="2fZ-ir-jUy">
@@ -283,7 +320,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z9v-Qx-nac" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1056.8" y="123.68815592203899"/>
+            <point key="canvasLocation" x="1070" y="600"/>
         </scene>
     </scenes>
 </document>

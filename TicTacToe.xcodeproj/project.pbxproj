@@ -20,6 +20,7 @@
 		7A8360992020B37F00678AF7 /* OnlineModalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8360982020B37F00678AF7 /* OnlineModalController.swift */; };
 		CA0C075220DA65660059DE74 /* picturePlayer0.png in Resources */ = {isa = PBXBuildFile; fileRef = CA0C075120DA65660059DE74 /* picturePlayer0.png */; };
 		CA0C075420DA659D0059DE74 /* picturePlayer1.png in Resources */ = {isa = PBXBuildFile; fileRef = CA0C075320DA659D0059DE74 /* picturePlayer1.png */; };
+		CA0C075820DAA1960059DE74 /* OfflineHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0C075720DAA1960059DE74 /* OfflineHistoryViewController.swift */; };
 		FA14376220D11648002194AA /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA14376120D11648002194AA /* Board.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		7A8360982020B37F00678AF7 /* OnlineModalController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnlineModalController.swift; sourceTree = "<group>"; };
 		CA0C075120DA65660059DE74 /* picturePlayer0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = picturePlayer0.png; sourceTree = "<group>"; };
 		CA0C075320DA659D0059DE74 /* picturePlayer1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = picturePlayer1.png; sourceTree = "<group>"; };
+		CA0C075720DAA1960059DE74 /* OfflineHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfflineHistoryViewController.swift; sourceTree = "<group>"; };
 		FA14376120D11648002194AA /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +125,7 @@
 				7A8360942020B02400678AF7 /* OnlineViewController.swift */,
 				7A8360962020B37000678AF7 /* OfflineModalController.swift */,
 				7A8360982020B37F00678AF7 /* OnlineModalController.swift */,
+				CA0C075720DAA1960059DE74 /* OfflineHistoryViewController.swift */,
 			);
 			path = TicTacToe;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				7A8360672020A9E500678AF7 /* ViewController.swift in Sources */,
 				7A8360992020B37F00678AF7 /* OnlineModalController.swift in Sources */,
 				7A8360652020A9E500678AF7 /* AppDelegate.swift in Sources */,
+				CA0C075820DAA1960059DE74 /* OfflineHistoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
