@@ -15,7 +15,7 @@ class OfflineModalController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        print("offline modal loaded")
+        //print("offline modal loaded")
         setButtonsBorder()
         self.winnerLabel.isHidden = true
         self.board = Board()
@@ -37,7 +37,7 @@ class OfflineModalController: UIViewController {
             buttonTouched.setImage(currentPlayerPicture, for: .normal)
             if (!self.board.canContinuePlaying()){
                 presentWinner()
-                self.updateData(winnerPlayerId: self.getCurrentPlayerId())
+                self.updateData(winnerPlayerId: self.board.getWinner())
             }
             self.originalPlayerTurn = !self.originalPlayerTurn
         }
@@ -64,16 +64,16 @@ class OfflineModalController: UIViewController {
     
     //helper functions
     private func updateData(winnerPlayerId: Int){
-        let cache = NSCache<NSString, AnyObject>()
+        let cache = UserDefaults.standard
         var myResults: [Int] = []
         
-        if let results = cache.object(forKey: "results") {
+        if let results = cache.array(forKey: "results") as? [Int] {
             // use the cached version
-            myResults = (results as? [Int])!
+            myResults = results
         }
             // create it from scratch then store in the cache
         myResults.append(winnerPlayerId)
-        cache.setObject(myResults as AnyObject, forKey: "results")
+        cache.set(myResults, forKey: "results")
     }
     
     private func setButtonsBorder(){

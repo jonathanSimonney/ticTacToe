@@ -32,7 +32,7 @@
                                 <rect key="frame" x="117" y="96" width="141" height="30"/>
                                 <state key="normal" title="See historic of game"/>
                                 <connections>
-                                    <segue destination="ii2-Op-kdh" kind="presentation" id="UNE-O3-Y85"/>
+                                    <segue destination="D1F-Pc-GxO" kind="presentation" id="UNE-O3-Y85"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -59,12 +59,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="singleMatchResult" id="loI-ay-KyN">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="singleMatchResult" textLabel="GcV-4w-7fq" style="IBUITableViewCellStyleDefault" id="loI-ay-KyN">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="loI-ay-KyN" id="YIw-MO-Qf6">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GcV-4w-7fq">
+                                            <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -73,10 +82,17 @@
                             <outlet property="delegate" destination="ii2-Op-kdh" id="Xmi-nS-q91"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Historic" id="2Zm-0S-sr7">
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="9rU-xe-Ff4">
+                            <connections>
+                                <action selector="closeAction2:" destination="ii2-Op-kdh" id="LUr-Lh-fIF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wFb-Ru-Nk5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2849" y="-1120"/>
+            <point key="canvasLocation" x="3788" y="-1120.3898050974515"/>
         </scene>
         <!--Offline Modal Controller-->
         <scene sceneID="Fyn-Zd-pCF">
@@ -177,7 +193,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGz-TN-chV">
-                                <rect key="frame" x="20" y="57" width="340" height="21"/>
+                                <rect key="frame" x="20" y="57" width="340" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -321,6 +337,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z9v-Qx-nac" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1070" y="600"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="5oL-Xi-Y8u">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="D1F-Pc-GxO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yPe-4Y-gNO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ii2-Op-kdh" kind="relationship" relationship="rootViewController" id="vdr-av-Olv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8jP-jR-7rI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2848.8000000000002" y="-1120.3898050974515"/>
         </scene>
     </scenes>
 </document>

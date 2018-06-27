@@ -1,0 +1,6 @@
+[submodule "socket.io-client-swift"]
+	path = socket.io-client-swift
+	url = https://github.com/socketio/socket.io-client-swift.git
+[submodule "Starscream"]
+	path = Starscream
+	url = https://github.com/nuclearace/Starscream

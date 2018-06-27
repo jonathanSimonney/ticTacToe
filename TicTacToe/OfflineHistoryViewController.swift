@@ -14,16 +14,16 @@ class OfflineHistoryViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let cache = NSCache<NSString, AnyObject>()
+        let cache = UserDefaults.standard
         var myResults: [Int] = []
         
-        if let results = cache.object(forKey: "results") {
+        if let results = cache.array(forKey: "results") {
             // use the cached version
             myResults = (results as? [Int])!
         }
         
         self.historic = myResults
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -36,6 +36,10 @@ class OfflineHistoryViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func closeAction2(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: false, completion: nil);
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -51,9 +55,20 @@ class OfflineHistoryViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "singleMatchResult", for: indexPath)
+        var result: String
 
-        // Configure the cell...
-
+        switch self.historic[indexPath.row]{
+        case -1:
+            result = "Draw"
+        case 1:
+            result = "Player 1 won"
+        case 0:
+            result = "Player 0 won"
+        default:
+            result = "Draw, probably (this is a bug, please report it"
+        }
+        
+        cell.textLabel?.text = result
         return cell
     }
     
