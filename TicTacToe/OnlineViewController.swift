@@ -11,14 +11,17 @@ import UIKit
 class OnlineViewController: ViewController {
     
     @IBOutlet weak var usernameView: UITextField!
+    var sv: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         //print("online view loaded")
         TTTSocket.sharedInstance.socket.on("join_game") { (params, emitter) in
-            print(params, emitter)
-            self.performSegue(withIdentifier: "presentOnlineGame", sender: nil)
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "presentOnlineGame", sender: params)
+            }
+            UIViewController.removeSpinner(spinner: self.sv)
         }
     }
     
@@ -32,7 +35,7 @@ class OnlineViewController: ViewController {
         let username = usernameView.text
         if (username != ""){
             TTTSocket.sharedInstance.socket.emit("join_queue", username!)
-            //todo create loader
+            self.sv = UIViewController.displaySpinner(onView: self.view)
         }else{
             let alert = UIAlertController(title: "Error", message: "Please enter a name in the Username field", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
@@ -42,6 +45,7 @@ class OnlineViewController: ViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "join_game"){
+            print(sender)
             //let controller = segue.destination as! OnlineModalController
             //use sender to set up some data
         }
