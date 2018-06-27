@@ -16,6 +16,10 @@ class OnlineViewController: ViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         //print("online view loaded")
+        TTTSocket.sharedInstance.socket.on("join_game") { (params, emitter) in
+            print(params, emitter)
+            self.performSegue(withIdentifier: "presentOnlineGame", sender: nil)
+        }
     }
     
     
@@ -28,10 +32,18 @@ class OnlineViewController: ViewController {
         let username = usernameView.text
         if (username != ""){
             TTTSocket.sharedInstance.socket.emit("join_queue", username!)
+            //todo create loader
         }else{
             let alert = UIAlertController(title: "Error", message: "Please enter a name in the Username field", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "join_game"){
+            //let controller = segue.destination as! OnlineModalController
+            //use sender to set up some data
         }
     }
     
