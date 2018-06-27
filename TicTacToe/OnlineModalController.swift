@@ -13,7 +13,7 @@ class OnlineModalController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        print("online modal loaded")
+        //print("online modal loaded")
     }
     
     override func didReceiveMemoryWarning() {

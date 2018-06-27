@@ -234,17 +234,29 @@
                                 <rect key="frame" x="150" y="318" width="74" height="30"/>
                                 <state key="normal" title="Play online"/>
                                 <connections>
-                                    <segue destination="LyD-Of-Avz" kind="presentation" id="BP3-Kz-Rd8"/>
+                                    <action selector="joinGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BWw-3r-NmK"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k5l-ir-o45">
+                                <rect key="frame" x="139" y="142" width="97" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="k5l-ir-o45" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="78" id="APV-8P-nzh"/>
+                            <constraint firstItem="k5l-ir-o45" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="123" id="Qlc-Sl-Bbq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="k5l-ir-o45" secondAttribute="trailing" constant="123" id="kyW-Lg-3PY"/>
                             <constraint firstItem="6Dc-9c-aAl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="qsY-dC-TwT"/>
                             <constraint firstItem="6Dc-9c-aAl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zDR-fu-tL5"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Qid-RQ-PTu"/>
+                    <connections>
+                        <outlet property="usernameView" destination="k5l-ir-o45" id="ZVb-jf-Ing"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

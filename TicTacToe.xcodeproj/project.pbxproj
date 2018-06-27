@@ -25,6 +25,7 @@
 		CAF27E1620E38E4E00BFB1EB /* SocketIO.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAF27E0A20E38CD500BFB1EB /* SocketIO.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CAF27E1A20E38E5700BFB1EB /* StarscreamSocketIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAF27DF420E38CC700BFB1EB /* StarscreamSocketIO.framework */; };
 		CAF27E1B20E38E5700BFB1EB /* StarscreamSocketIO.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAF27DF420E38CC700BFB1EB /* StarscreamSocketIO.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CAF27E1F20E394EE00BFB1EB /* TTTSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF27E1E20E394EE00BFB1EB /* TTTSocket.swift */; };
 		FA14376220D11648002194AA /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA14376120D11648002194AA /* Board.swift */; };
 /* End PBXBuildFile section */
 
@@ -181,6 +182,7 @@
 		CA0C075720DAA1960059DE74 /* OfflineHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfflineHistoryViewController.swift; sourceTree = "<group>"; };
 		CAF27DEA20E38CC700BFB1EB /* Starscream.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Starscream.xcodeproj; path = Starscream/Starscream.xcodeproj; sourceTree = SOURCE_ROOT; };
 		CAF27DFF20E38CD500BFB1EB /* Socket.IO-Client-Swift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Socket.IO-Client-Swift.xcodeproj"; path = "socket.io-client-swift/Socket.IO-Client-Swift.xcodeproj"; sourceTree = SOURCE_ROOT; };
+		CAF27E1E20E394EE00BFB1EB /* TTTSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTTSocket.swift; sourceTree = "<group>"; };
 		FA14376120D11648002194AA /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -249,6 +251,7 @@
 				7A8360962020B37000678AF7 /* OfflineModalController.swift */,
 				7A8360982020B37F00678AF7 /* OnlineModalController.swift */,
 				CA0C075720DAA1960059DE74 /* OfflineHistoryViewController.swift */,
+				CAF27E1E20E394EE00BFB1EB /* TTTSocket.swift */,
 			);
 			path = TicTacToe;
 			sourceTree = "<group>";
@@ -557,6 +560,7 @@
 				7A8360672020A9E500678AF7 /* ViewController.swift in Sources */,
 				7A8360992020B37F00678AF7 /* OnlineModalController.swift in Sources */,
 				7A8360652020A9E500678AF7 /* AppDelegate.swift in Sources */,
+				CAF27E1F20E394EE00BFB1EB /* TTTSocket.swift in Sources */,
 				CA0C075820DAA1960059DE74 /* OfflineHistoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
