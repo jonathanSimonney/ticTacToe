@@ -355,7 +355,7 @@
                                 <rect key="frame" x="20" y="28" width="39" height="30"/>
                                 <state key="normal" title="Close"/>
                                 <connections>
-                                    <action selector="CloseAction:" destination="Wcq-ut-iSn" eventType="touchUpInside" id="wZB-tW-j4l"/>
+                                    <action selector="closeAction:" destination="Wcq-ut-iSn" eventType="touchUpInside" id="kTd-Fl-VLE"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="MYG-Dn-PoV">
