@@ -366,12 +366,21 @@
                                         <subviews>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h2G-mH-s5r">
                                                 <rect key="frame" x="0.0" y="0.0" width="83.5" height="83.5"/>
+                                                <connections>
+                                                    <action selector="buttonTouched:" destination="Wcq-ut-iSn" eventType="touchUpInside" id="hGQ-Tm-IkE"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kqR-NJ-Clk">
                                                 <rect key="frame" x="83.5" y="0.0" width="83" height="83.5"/>
+                                                <connections>
+                                                    <action selector="buttonTouched:" destination="Wcq-ut-iSn" eventType="touchUpInside" id="4Ac-uc-1GM"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ogb-2x-Vu8">
                                                 <rect key="frame" x="166.5" y="0.0" width="83.5" height="83.5"/>
+                                                <connections>
+                                                    <action selector="buttonTouched:" destination="Wcq-ut-iSn" eventType="touchUpInside" id="NZd-gw-r6H"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -380,12 +389,21 @@
                                         <subviews>
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tjJ-Zq-hwg">
                                                 <rect key="frame" x="0.0" y="0.0" width="83.5" height="83"/>
+                                                <connections>
+                                                    <action selector="buttonTouched:" destination="Wcq-ut-iSn" eventType="touchUpInside" id="pF8-MY-UGT"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOU-rG-f8o">
                                                 <rect key="frame" x="83.5" y="0.0" width="83" height="83"/>
+                                                <connections>
+                                                    <action selector="buttonTouched:" destination="Wcq-ut-iSn" eventType="touchUpInside" id="8pP-Or-zl7"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N6q-ta-Hee">
                                                 <rect key="frame" x="166.5" y="0.0" width="83.5" height="83"/>
+                                                <connections>
+                                                    <action selector="buttonTouched:" destination="Wcq-ut-iSn" eventType="touchUpInside" id="y7L-75-vcY"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -394,12 +412,21 @@
                                         <subviews>
                                             <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oHW-Mj-gix">
                                                 <rect key="frame" x="0.0" y="0.0" width="83.5" height="83.5"/>
+                                                <connections>
+                                                    <action selector="buttonTouched:" destination="Wcq-ut-iSn" eventType="touchUpInside" id="kNt-nY-6Eh"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIO-hX-lIN">
                                                 <rect key="frame" x="83.5" y="0.0" width="83" height="83.5"/>
+                                                <connections>
+                                                    <action selector="buttonTouched:" destination="Wcq-ut-iSn" eventType="touchUpInside" id="YgE-wm-QJg"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="on5-hg-DdT">
                                                 <rect key="frame" x="166.5" y="0.0" width="83.5" height="83.5"/>
+                                                <connections>
+                                                    <action selector="buttonTouched:" destination="Wcq-ut-iSn" eventType="touchUpInside" id="qqQ-RU-mNj"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>

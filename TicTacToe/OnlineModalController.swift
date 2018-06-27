@@ -35,6 +35,11 @@ class OnlineModalController: UIViewController {
         self.dismiss(animated: false, completion: nil);
     }
     
+    @IBAction func buttonTouched(_ sender: UIButton) {
+        let boxPlayedNumber = sender.tag - 1
+        TTTSocket.sharedInstance.socket.emit("movement", boxPlayedNumber)
+    }
+    
     private func setButtonsBorder(){
         for i in 1...9{
             let button = self.view.viewWithTag(i) as? UIButton
