@@ -22,7 +22,6 @@ class OnlineModalController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.board = Board()
         setButtonsBorder()
         setViewContent()
         TTTSocket.sharedInstance.socket.on("movement") { (params, _) in
@@ -92,15 +91,31 @@ class OnlineModalController: UIViewController {
             print(unwrappedDictJson["err"])
             self.showError(errorType: unwrappedDictJson["err"] as! String)
         }
-        //errors possible : game_finished
+        //errors possible : wrong_movement, game_finished
     }
     
     private func makeMovement(params: [String: Any]){
         params["index"]
-        params["player_played"]
         params["win"]
-        params["player_play"]
+        params["grid"]
         print(params)
+        
+        self.setImageInBox(boxNumber: params["index"] as! Int + 1)
+        self.updateCurrentPlayerTurn()
+    }
+    
+    private func setImageInBox(boxNumber: Int){
+        let currentPlayerId = self.isOurPlayerTurn() ? 1 : 0
+        let buttonTouched = self.view.viewWithTag(boxNumber) as! UIButton
+        
+        let currentPlayerPicture = UIImage(named: "picturePlayer" + String(currentPlayerId)+".png")
+        buttonTouched.setImage(currentPlayerPicture, for: .normal)
+    }
+    
+    private func updateCurrentPlayerTurn(){
+        self.isXPlayerTurn = !self.isXPlayerTurn!
+        let currentPlayer = self.isXPlayerTurn! ? "Player X" : "Player O"
+        self.currentTurn.text = "Current turn : " + currentPlayer
     }
     
     private func showError(errorType: String){
