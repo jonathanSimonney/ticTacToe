@@ -28,6 +28,10 @@ class OnlineModalController: UIViewController {
         TTTSocket.sharedInstance.socket.on("movement") { (params, _) in
             self.updateGrid(params: params)
         }
+        TTTSocket.sharedInstance.socket.on("opponent_leave") { (params, _) in
+            self.isGameOngoing = false
+            self.showResult(resultType: "victory")
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -36,7 +40,20 @@ class OnlineModalController: UIViewController {
     }
     
     @IBAction func closeAction(_ sender: Any) {
-        self.dismiss(animated: false, completion: nil)
+        if (!self.isGameOngoing){
+            self.dismiss(animated: false, completion: nil);
+        }
+        let alert = UIAlertController(title: "Leave?", message: "If you leave, you'll be considered as having lost this game. ", preferredStyle: .alert)
+        let modalViewController = self
+        
+        alert.addAction(UIAlertAction(title: "Leave", style: .default, handler: {
+            (alert: UIAlertAction!) in
+            TTTSocket.sharedInstance.socket.emit("leave_game")
+            modalViewController.dismiss(animated: false, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Stay", style: .default, handler: nil))
+        
+        self.present(alert, animated: true)
     }
     
     @IBAction func buttonTouched(_ sender: UIButton) {
