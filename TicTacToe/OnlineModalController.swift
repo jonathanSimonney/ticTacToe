@@ -17,7 +17,7 @@ class OnlineModalController: UIViewController {
     var xPlayerName :String?
     var oPlayerName :String?
     var isXPlayerTurn :Bool?
-    var board :Board!
+    var isOurPlayerX :Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,19 +40,20 @@ class OnlineModalController: UIViewController {
     }
     
     @IBAction func buttonTouched(_ sender: UIButton) {
-        if self.board.canPlayInBox(boxNumber: sender.tag){
-            let boxPlayedNumber = sender.tag - 1
-            TTTSocket.sharedInstance.socket.emit("movement", boxPlayedNumber)
-        }else{
-            self.showError(errorType: "wrong_movement")
+        if !self.isOurPlayerTurn(){
+            self.showError(errorType: "not_your_turn")
+            return
         }
+        let boxPlayedNumber = sender.tag - 1
+        TTTSocket.sharedInstance.socket.emit("movement", boxPlayedNumber)
     }
     
-    public func setAttrs(params: Any?){
+    public func setAttrs(params: Any?, playerUsername: String){
         let unwrappedDictJson = self.unwrappReturn(params: params)
         self.xPlayerName = unwrappedDictJson["playerX"] as! String?
         self.oPlayerName = unwrappedDictJson["playerO"] as! String?
         self.isXPlayerTurn = unwrappedDictJson["currentTurn"] as! String == "x"
+        self.isOurPlayerX = playerUsername == self.xPlayerName
     }
     
     private func setButtonsBorder(){
@@ -61,6 +62,13 @@ class OnlineModalController: UIViewController {
             button?.layer.borderColor = UIColor.black.cgColor
             button?.layer.borderWidth = 2
         }
+    }
+    
+    private func isOurPlayerTurn() -> Bool{
+        if (self.isOurPlayerX)!{
+            return isXPlayerTurn!
+        }
+        return !isXPlayerTurn!
     }
     
     private func setViewContent(){
@@ -78,13 +86,13 @@ class OnlineModalController: UIViewController {
     private func updateGrid(params: Any?){
         let unwrappedDictJson = self.unwrappReturn(params: params)
         print(unwrappedDictJson)
-        if (unwrappedDictJson["error"] == nil){
-            print(unwrappedDictJson)
+        if (unwrappedDictJson["err"] is NSNull){
             self.makeMovement(params: unwrappedDictJson)
         }else{
+            print(unwrappedDictJson["err"])
             self.showError(errorType: unwrappedDictJson["err"] as! String)
         }
-        //errors possible : game_finished, not_your_turn
+        //errors possible : game_finished
     }
     
     private func makeMovement(params: [String: Any]){
@@ -92,6 +100,7 @@ class OnlineModalController: UIViewController {
         params["player_played"]
         params["win"]
         params["player_play"]
+        print(params)
     }
     
     private func showError(errorType: String){

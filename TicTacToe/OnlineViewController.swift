@@ -46,7 +46,7 @@ class OnlineViewController: ViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "presentOnlineGame"){
             let controller = segue.destination as! OnlineModalController
-            controller.setAttrs(params: sender)
+            controller.setAttrs(params: sender, playerUsername: usernameView.text!)
         }
     }
     
