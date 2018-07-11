@@ -7,7 +7,7 @@ target 'TicTacToe' do
   
   # Pods for TicTacToe
   pod 'Socket.IO-Client-Swift', '~> 11.0.0'  
-
+  pod "CDAlertView"
   target 'TicTacToeTests' do
     inherit! :search_paths
     # Pods for testing

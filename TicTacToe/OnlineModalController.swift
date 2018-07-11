@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CDAlertView
 
 class OnlineModalController: UIViewController {
     
@@ -43,17 +44,19 @@ class OnlineModalController: UIViewController {
         if (!self.isGameOngoing){
             self.dismiss(animated: false, completion: nil);
         }
-        let alert = UIAlertController(title: "Leave?", message: "If you leave, you'll be considered as having lost this game. ", preferredStyle: .alert)
         let modalViewController = self
-        
-        alert.addAction(UIAlertAction(title: "Leave", style: .default, handler: {
-            (alert: UIAlertAction!) in
+        let alert = CDAlertView(title: "Leave?", message: "If you leave, you'll be considered as having lost this game. ", type: .warning)
+        alert.add(action: CDAlertViewAction(title: "Leave", handler: {
+            (alert: CDAlertViewAction!) in
             TTTSocket.sharedInstance.socket.emit("leave_game")
             modalViewController.dismiss(animated: false, completion: nil)
+            
+            return true
         }))
-        alert.addAction(UIAlertAction(title: "Stay", style: .default, handler: nil))
+
+        alert.add(action: CDAlertViewAction(title: "Stay", handler: nil))
         
-        self.present(alert, animated: true)
+        alert.show()
     }
     
     @IBAction func buttonTouched(_ sender: UIButton) {

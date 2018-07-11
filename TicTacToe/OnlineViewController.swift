@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CDAlertView
 
 class OnlineViewController: ViewController {
     
@@ -37,9 +38,9 @@ class OnlineViewController: ViewController {
             TTTSocket.sharedInstance.socket.emit("join_queue", username!)
             self.sv = UIViewController.displaySpinner(onView: self.view)
         }else{
-            let alert = UIAlertController(title: "Error", message: "Please enter a name in the Username field", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            let alert = CDAlertView(title: "Error", message: "Please enter a name in the Username field", type: .error)
+            alert.add(action: CDAlertViewAction(title: "Ok", handler: nil))
+            alert.show()
         }
     }
     
