@@ -18,6 +18,7 @@ class OnlineModalController: UIViewController {
     var oPlayerName :String?
     var isXPlayerTurn :Bool?
     var isOurPlayerX :Bool?
+    var isGameOngoing :Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,10 @@ class OnlineModalController: UIViewController {
     }
     
     @IBAction func buttonTouched(_ sender: UIButton) {
+        if !self.isGameOngoing{
+            self.showError(errorType: "game_finished")
+            return
+        }
         if !self.isOurPlayerTurn(){
             self.showError(errorType: "not_your_turn")
             return
@@ -84,7 +89,6 @@ class OnlineModalController: UIViewController {
     
     private func updateGrid(params: Any?){
         let unwrappedDictJson = self.unwrappReturn(params: params)
-        print(unwrappedDictJson)
         if (unwrappedDictJson["err"] is NSNull){
             self.makeMovement(params: unwrappedDictJson)
         }else{
@@ -147,6 +151,7 @@ class OnlineModalController: UIViewController {
         if coloredBoxes.count != 0{
             self.colorButtons(arrayTags: coloredBoxes)
             let ret = self.isOurPlayerTurn() ? "victory" : "defeat"
+            self.isGameOngoing = false
             return ret
         }
         
@@ -157,6 +162,7 @@ class OnlineModalController: UIViewController {
         if (isGameOnGoing){
             return nil
         }
+        self.isGameOngoing = false
         return "ex_eaquo"
     }
     
