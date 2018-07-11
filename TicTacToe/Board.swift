@@ -19,7 +19,7 @@ class Board {
     private var coloredBoxes: [Int] = []
     
     func playInBox(boxNumber :Int) -> Bool{
-        if (self.boxes[boxNumber - 1] != -1){
+        if (!self.canPlayInBox(boxNumber: boxNumber)){
             return false
         }
         self.numberTurnPlayed += 1
@@ -28,6 +28,13 @@ class Board {
         self.originalPlayerTurn = !self.originalPlayerTurn//we change the current player turn
         if (self.numberTurnPlayed == 9){
             self.gameIsEnded = true
+        }
+        return true
+    }
+    
+    func canPlayInBox(boxNumber :Int) -> Bool{
+        if (self.boxes[boxNumber - 1] != -1){
+            return false
         }
         return true
     }

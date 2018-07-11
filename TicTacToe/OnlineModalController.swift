@@ -17,10 +17,12 @@ class OnlineModalController: UIViewController {
     var xPlayerName :String?
     var oPlayerName :String?
     var isXPlayerTurn :Bool?
+    var board :Board!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.board = Board()
         setButtonsBorder()
         setViewContent()
         TTTSocket.sharedInstance.socket.on("movement") { (params, _) in
@@ -38,8 +40,12 @@ class OnlineModalController: UIViewController {
     }
     
     @IBAction func buttonTouched(_ sender: UIButton) {
-        let boxPlayedNumber = sender.tag - 1
-        TTTSocket.sharedInstance.socket.emit("movement", boxPlayedNumber)
+        if self.board.canPlayInBox(boxNumber: sender.tag){
+            let boxPlayedNumber = sender.tag - 1
+            TTTSocket.sharedInstance.socket.emit("movement", boxPlayedNumber)
+        }else{
+            self.showError(errorType: "wrong_movement")
+        }
     }
     
     public func setAttrs(params: Any?){
@@ -78,7 +84,7 @@ class OnlineModalController: UIViewController {
         }else{
             self.showError(errorType: unwrappedDictJson["err"] as! String)
         }
-        //errors possible : wrong_movement, game_finished, not_your_turn
+        //errors possible : game_finished, not_your_turn
     }
     
     private func makeMovement(params: [String: Any]){
