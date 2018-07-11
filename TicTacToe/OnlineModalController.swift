@@ -88,19 +88,14 @@ class OnlineModalController: UIViewController {
         if (unwrappedDictJson["err"] is NSNull){
             self.makeMovement(params: unwrappedDictJson)
         }else{
-            print(unwrappedDictJson["err"])
             self.showError(errorType: unwrappedDictJson["err"] as! String)
         }
         //errors possible : wrong_movement, game_finished
     }
     
     private func makeMovement(params: [String: Any]){
-        params["index"]
-        params["win"]
-        params["grid"]
-        print(params)
-        
         self.setImageInBox(boxNumber: params["index"] as! Int + 1)
+        self.checkWinner(params: params)
         self.updateCurrentPlayerTurn()
     }
     
@@ -110,6 +105,66 @@ class OnlineModalController: UIViewController {
         
         let currentPlayerPicture = UIImage(named: "picturePlayer" + String(currentPlayerId)+".png")
         buttonTouched.setImage(currentPlayerPicture, for: .normal)
+    }
+    
+    private func checkWinner(params: [String: Any]){
+        let grid = params["grid"] as! [Any]
+        let resultType: String? = self.analyseGrid(boxes: grid)
+        
+        if (resultType != nil){
+            self.showResult(resultType: resultType!)
+        }
+    }
+    
+    private func analyseGrid(boxes: [Any]) -> String?{
+        let currentPlayerId = self.isXPlayerTurn! ? "x" : "o"
+        var coloredBoxes: [Int] = []
+        if (boxes[0] as? String == currentPlayerId && boxes[1] as? String == currentPlayerId && boxes[2] as? String == currentPlayerId){
+            coloredBoxes = [1, 2, 3]
+        }
+        if (boxes[3] as? String == currentPlayerId && boxes[4] as? String == currentPlayerId && boxes[5] as? String == currentPlayerId){
+            coloredBoxes = [4, 5, 6]
+        }
+        if (boxes[6] as? String == currentPlayerId && boxes[7] as? String == currentPlayerId && boxes[8] as? String == currentPlayerId){
+            coloredBoxes = [7, 8, 9]
+        }
+        if (boxes[0] as? String == currentPlayerId && boxes[3] as? String == currentPlayerId && boxes[6] as? String == currentPlayerId){
+            coloredBoxes = [1, 4, 7]
+        }
+        if (boxes[1] as? String == currentPlayerId && boxes[4] as? String == currentPlayerId && boxes[7] as? String == currentPlayerId){
+            coloredBoxes = [2, 5, 8]
+        }
+        if (boxes[2] as? String == currentPlayerId && boxes[5] as? String == currentPlayerId && boxes[8] as? String == currentPlayerId){
+            coloredBoxes = [3, 6, 9]
+        }
+        if (boxes[0] as? String == currentPlayerId && boxes[4] as? String == currentPlayerId && boxes[8] as? String == currentPlayerId){
+            coloredBoxes = [1, 5, 9]
+        }
+        if (boxes[2] as? String == currentPlayerId && boxes[4] as? String == currentPlayerId && boxes[6] as? String == currentPlayerId){
+            coloredBoxes = [3, 5, 7]
+        }
+        
+        if coloredBoxes.count != 0{
+            self.colorButtons(arrayTags: coloredBoxes)
+            let ret = self.isOurPlayerTurn() ? "victory" : "defeat"
+            return ret
+        }
+        
+        let isGameOnGoing = boxes.contains { element in
+            return element as? Int == 0
+        }
+        
+        if (isGameOnGoing){
+            return nil
+        }
+        return "ex_eaquo"
+    }
+    
+    private func colorButtons(arrayTags: [Int]){
+        for i in arrayTags{
+            let button = self.view.viewWithTag(i) as? UIButton
+            button?.backgroundColor = .red
+        }
     }
     
     private func updateCurrentPlayerTurn(){
@@ -133,6 +188,25 @@ class OnlineModalController: UIViewController {
         }
         
         let alert = UIAlertController(title: "Error", message: errorMessage, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func showResult(resultType: String){
+        var resultMessage: String
+        
+        switch resultType{
+        case "victory":
+            resultMessage = "Congratulation, you won!"
+        case "defeat":
+            resultMessage = "Sorry, you lost!"
+        case "ex_eaquo":
+            resultMessage = "Ex eaquo. Hope you enjoyed the game!"
+        default:
+            resultMessage = "Unknown result, please report the problem."
+        }
+        
+        let alert = UIAlertController(title: "Game finished", message: resultMessage, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
