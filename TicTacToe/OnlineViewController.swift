@@ -8,11 +8,11 @@
 
 import UIKit
 import CDAlertView
+import SwiftSpinner
 
 class OnlineViewController: ViewController {
     
     @IBOutlet weak var usernameView: UITextField!
-    var sv: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,7 @@ class OnlineViewController: ViewController {
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: "presentOnlineGame", sender: params)
             }
-            UIViewController.removeSpinner(spinner: self.sv)
+            SwiftSpinner.hide()
         }
     }
     
@@ -36,7 +36,7 @@ class OnlineViewController: ViewController {
         let username = usernameView.text
         if (username != ""){
             TTTSocket.sharedInstance.socket.emit("join_queue", username!)
-            self.sv = UIViewController.displaySpinner(onView: self.view)
+            SwiftSpinner.show("Searching other players...")
         }else{
             let alert = CDAlertView(title: "Error", message: "Please enter a name in the Username field", type: .error)
             alert.add(action: CDAlertViewAction(title: "Ok", handler: nil))
