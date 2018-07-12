@@ -31,7 +31,12 @@ class OnlineModalController: UIViewController {
         }
         TTTSocket.sharedInstance.socket.on("opponent_leave") { (params, _) in
             self.isGameOngoing = false
-            self.showResult(resultType: "victory")
+            let winner = self.unwrappReturn(params: params)["winner"] as? String
+            let ourPlayerLetter = self.isOurPlayerX! ? "x" : "o"
+            
+            if winner == ourPlayerLetter{
+                self.showResult(resultType: "victory")
+            }
         }
     }
     
