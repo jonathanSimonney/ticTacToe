@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CDAlertView
 
 class OfflineModalController: UIViewController {
     var board :Board!
@@ -48,18 +49,22 @@ class OfflineModalController: UIViewController {
     @IBAction func closeAction(_ sender: Any) {
         if (!self.board.canContinuePlaying()){
             self.dismiss(animated: false, completion: nil);
+            return
         }
-        let alert = UIAlertController(title: "Leave?", message: "If you leave, you'll be considered as having lost this game. ", preferredStyle: .alert)
-        let modalViewController = self
         
-        alert.addAction(UIAlertAction(title: "Leave", style: .default, handler: {
-            (alert: UIAlertAction!) in
+        let modalViewController = self
+        let alert = CDAlertView(title: "Leave?", message: "If you leave, you'll be considered as having lost this game. ", type: .warning)
+        alert.add(action: CDAlertViewAction(title: "Leave", handler: {
+            (alert: CDAlertViewAction!) in
             modalViewController.updateData(winnerPlayerId: modalViewController.getOppositePlayerId())
             modalViewController.dismiss(animated: false, completion: nil)
+            
+            return true
         }))
-        alert.addAction(UIAlertAction(title: "Stay", style: .default, handler: nil))
         
-        self.present(alert, animated: true)
+        alert.add(action: CDAlertViewAction(title: "Stay", handler: nil))
+        
+        alert.show()
     }
     
     //helper functions

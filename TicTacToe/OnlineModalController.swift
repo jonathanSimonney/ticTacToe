@@ -43,6 +43,7 @@ class OnlineModalController: UIViewController {
     @IBAction func closeAction(_ sender: Any) {
         if (!self.isGameOngoing){
             self.dismiss(animated: false, completion: nil);
+            return
         }
         let modalViewController = self
         let alert = CDAlertView(title: "Leave?", message: "If you leave, you'll be considered as having lost this game. ", type: .warning)
@@ -201,6 +202,7 @@ class OnlineModalController: UIViewController {
     
     private func showError(errorType: String){
         var errorMessage: String
+        var type: CDAlertViewType = .warning
         
         switch errorType{
         case "wrong_movement":
@@ -210,20 +212,21 @@ class OnlineModalController: UIViewController {
         case "not_your_turn":
             errorMessage = "It's not your turn!"
         default:
+            type = .error
             errorMessage = "Unknown error, please report the problem."
         }
         
-        let alert = UIAlertController(title: "Error", message: errorMessage, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        AlertHelper.displaySimpleAlert(title: "Error", message: errorMessage, type: type)
     }
     
     private func showResult(resultType: String){
         var resultMessage: String
+        var type: CDAlertViewType = .notification
         
         switch resultType{
         case "victory":
             resultMessage = "Congratulation, you won!"
+            type = .success
         case "defeat":
             resultMessage = "Sorry, you lost!"
         case "ex_eaquo":
@@ -232,8 +235,6 @@ class OnlineModalController: UIViewController {
             resultMessage = "Unknown result, please report the problem."
         }
         
-        let alert = UIAlertController(title: "Game finished", message: resultMessage, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        AlertHelper.displaySimpleAlert(title: "Game finished", message: resultMessage, type: type)
     }
 }
